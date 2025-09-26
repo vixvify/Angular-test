@@ -2,10 +2,11 @@ import { Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgClass, TitleCasePipe, CurrencyPipe, DatePipe } from '@angular/common';
 import { Header } from './header/header';
+import { Items } from './items/items';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, NgClass, TitleCasePipe, CurrencyPipe, DatePipe, Header],
+  imports: [FormsModule, NgClass, TitleCasePipe, CurrencyPipe, DatePipe, Header, Items],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
