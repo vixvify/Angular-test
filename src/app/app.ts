@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgClass, TitleCasePipe, CurrencyPipe, DatePipe } from '@angular/common';
 
@@ -40,4 +40,6 @@ export class App {
   decrease() {
     this.i.update((e) => e - 1);
   }
+  doublei = computed(() => this.i() * 2);
+  eveni = computed(() => (this.i() % 2 == 0 ? 'เลขคู่' : 'เลขคี่'));
 }

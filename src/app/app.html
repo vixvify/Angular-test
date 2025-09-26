@@ -12,7 +12,6 @@
     <h3>วันเกิด {{ birth | date : 'fullDate' }}</h3>
     <h3>เงินเดือน {{ salary | currency : 'THB' }}</h3>
     <img [src]="imageUrl" [width]="sizex" [height]="sizey" />
-    <img [src]="imageUrl" [width]="sizex * 2" [height]="sizey * 2" />
     <button (click)="showMsg()">แสดงข้อมูล</button>
     <input type="text" [(ngModel)]="name" />
     @if(!isLogin){
@@ -25,9 +24,11 @@
       <li>{{ e }}</li>
       }
     </ul>
-    <button (click)="changeTheme()">{{ light ? 'โหมดกลางคืน' : 'โหมดกลางวัน' }}</button>
-    <h1>{{ i() }}</h1>
-    <div style="display: flex">
+    <button (click)="changeTheme()">{{ light ? 'โหมดกลางวัน' : 'โหมดกลางคืน' }}</button>
+    <h1>i = {{ i() }}</h1>
+    <h2>double i = {{ doublei() }}</h2>
+    <h2>even i = {{ eveni() }}</h2>
+    <div style="display: flex; gap: 20px">
       <button (click)="decrease()">-</button>
       <button (click)="increase()">+</button>
     </div>
