@@ -1,36 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body [ngClass]="light ? 'light' : 'dark'">
-    <h1>Hello {{ name | titlecase }}</h1>
-    <h2>อายุของคุณคือ {{ getAge() }}</h2>
-    <h3>คุณเกิดปี พ.ศ. {{ 2568 - getAge() }}</h3>
-    <h3>วันเกิด {{ birth | date : 'fullDate' }}</h3>
-    <h3>เงินเดือน {{ salary | currency : 'THB' }}</h3>
-    <img [src]="imageUrl" [width]="sizex" [height]="sizey" />
-    <button (click)="showMsg()">แสดงข้อมูล</button>
-    <input type="text" [(ngModel)]="name" />
-    @if(!isLogin){
-    <button (click)="changeStatus()">เข้าสู่ระบบ</button>
-    } @else {
-    <button (click)="changeStatus()">ออกจากระบบ</button>
+<app-header [name]="name"></app-header>
+<body
+  [ngClass]="light ? 'light' : 'dark'"
+  class="flex flex-col justify-around items-center gap-5 mt-10 pb-10"
+>
+  <p class="font-bold">- Text Interpolation and Pipes -</p>
+  <h1>Hello {{ name | titlecase }}</h1>
+  <h2>อายุของคุณคือ {{ getAge() }}</h2>
+  <h3>คุณเกิดปี พ.ศ. {{ 2568 - getAge() }}</h3>
+  <h3>วันเกิด {{ birth | date : 'fullDate' }}</h3>
+  <h3>เงินเดือน {{ salary | currency : 'THB' }}</h3>
+
+  <p class="font-bold">- Property Binding -</p>
+  <img [src]="imageUrl" [width]="sizex" [height]="sizey" />
+
+  <p class="font-bold">- Event Binding -</p>
+  <button (click)="showMsg()" class="bg-amber-600 rounded-2xl p-2 text-white">แสดงข้อมูล</button>
+
+  <p class="font-bold">- Two-Way Binding -</p>
+  <input type="text" class="border-2 border-black" [(ngModel)]="name" />
+
+  <p class="font-bold">- If...Else -</p>
+  @if(!isLogin){
+  <button (click)="changeStatus()" class="bg-amber-600 rounded-2xl p-2 text-white">
+    เข้าสู่ระบบ
+  </button>
+  } @else {
+  <button (click)="changeStatus()" class="bg-amber-600 rounded-2xl p-2 text-white">
+    ออกจากระบบ
+  </button>
+  }
+
+  <p class="font-bold">- For...Empty -</p>
+  <ul class="flex justify-center items-center gap-5">
+    @for(e of skills ; track $index){
+    <li>{{ e }}</li>
     }
-    <ul>
-      @for(e of skills ; track $index){
-      <li>{{ e }}</li>
-      }
-    </ul>
-    <button (click)="changeTheme()">{{ light ? 'โหมดกลางวัน' : 'โหมดกลางคืน' }}</button>
-    <h1>i = {{ i() }}</h1>
-    <h2>double i = {{ doublei() }}</h2>
-    <h2>even i = {{ eveni() }}</h2>
-    <div style="display: flex; gap: 20px">
-      <button (click)="decrease()">-</button>
-      <button (click)="increase()">+</button>
-    </div>
-  </body>
-</html>
+  </ul>
+
+  <p class="font-bold">- ngClass Directive -</p>
+  <button (click)="changeTheme()" class="bg-amber-600 rounded-2xl p-2 text-white">
+    {{ light ? 'โหมดกลางวัน' : 'โหมดกลางคืน' }}
+  </button>
+
+  <p class="font-bold">- Writable Signals -</p>
+  <h1>i = {{ i() }}</h1>
+  <div style="display: flex; gap: 20px">
+    <button (click)="decrease()" class="bg-amber-600 rounded-2xl p-2 text-white w-10">-</button>
+    <button (click)="increase()" class="bg-amber-600 rounded-2xl p-2 text-white w-10">+</button>
+  </div>
+
+  <p class="font-bold">- Computed Signals -</p>
+  <h2>double i = {{ doublei() }}</h2>
+  <h2>even i = {{ eveni() }}</h2>
+</body>
