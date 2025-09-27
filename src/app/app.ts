@@ -44,4 +44,13 @@ export class App {
   }
   doublei = computed(() => this.i() * 2);
   eveni = computed(() => (this.i() % 2 == 0 ? 'เลขคู่' : 'เลขคี่'));
+  data = [
+    { id: 1, name: 'wee', age: 18, salary: 300 },
+    { id: 2, name: 'view', age: 18, salary: 200 },
+    { id: 3, name: 'kong', age: 18, salary: 400 },
+    { id: 4, name: 'kwan', age: 18, salary: 150 },
+  ];
+  removeData(id: number) {
+    this.data = this.data.filter((e) => e.id !== id);
+  }
 }

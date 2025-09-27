@@ -1,9 +1,11 @@
 <h2 class="font-medium text-xl">ข้อมูลพนักงาน</h2>
 <ul class="flex flex-col justify-center items-center gap-3 mt-4">
-  @for(e of data ; track e.id){
+  @for(e of data() ; track e.id){
   <li class="bg-amber-700 text-white p-3 rounded-2xl flex justify-center items-center gap-5">
     {{ 'ชื่อ :' + e.name + ' ' + 'อายุ :' + e.age + ' ' + 'เงินเดือน :' + e.salary }}
-    <button class="bg-red-600 text-white pl-3 pr-3 pt-2 pb-2 rounded-2xl">ลบข้อมูล</button>
+    <button class="bg-red-600 text-white pl-3 pr-3 pt-2 pb-2 rounded-2xl" (click)="delItem(e.id)">
+      ลบข้อมูล
+    </button>
   </li>
   }
 </ul>

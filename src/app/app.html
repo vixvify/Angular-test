@@ -54,5 +54,5 @@
   <h2>even i = {{ eveni() }}</h2>
 
   <p class="font-bold">- Output Properties (Children to Parent) -</p>
-  <app-items></app-items>
+  <app-items [data]="data" (onDel)="removeData($event)"></app-items>
 </body>

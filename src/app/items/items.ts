@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-items',
@@ -6,10 +6,12 @@ import { Component } from '@angular/core';
   templateUrl: './items.html',
 })
 export class Items {
-  data = [
-    { id: 1, name: 'wee', age: 18, salary: 300 },
-    { id: 2, name: 'view', age: 18, salary: 200 },
-    { id: 3, name: 'kong', age: 18, salary: 400 },
-    { id: 4, name: 'kwan', age: 18, salary: 150 },
-  ];
+  data = input<any[]>();
+  onDel = output<number>();
+
+  delItem(id: number) {
+    if (confirm(`ต้องการลบข้อมูลหรือไม่`)) {
+      this.onDel.emit(id);
+    }
+  }
 }
