@@ -1,0 +1,16 @@
+<div>
+  <form class="flex flex-col gap-2" (ngSubmit)="sendData()">
+    <p>ชื่อ</p>
+    <input type="text" class="border-2 border-black w-[320px]" [(ngModel)]="name" name="name" />
+    <p>อายุ</p>
+    <input type="number" class="border-2 border-black w-[320px]" [(ngModel)]="age" name="age" />
+    <p>เงินเดือน</p>
+    <input
+      type="number"
+      class="border-2 border-black w-[320px]"
+      [(ngModel)]="salary"
+      name="salary"
+    />
+    <button type="submit" class="bg-blue-600 p-3 rounded-2xl text-white mt-4">บันทึกข้อมูล</button>
+  </form>
+</div>

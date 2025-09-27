@@ -3,10 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { NgClass, TitleCasePipe, CurrencyPipe, DatePipe } from '@angular/common';
 import { Header } from './header/header';
 import { Items } from './items/items';
+import { Form } from './form/form';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, NgClass, TitleCasePipe, CurrencyPipe, DatePipe, Header, Items],
+  imports: [FormsModule, NgClass, TitleCasePipe, CurrencyPipe, DatePipe, Header, Items, Form],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -52,5 +53,8 @@ export class App {
   ];
   removeData(id: number) {
     this.data = this.data.filter((e) => e.id !== id);
+  }
+  saveData(newdata: any) {
+    this.data.push(newdata);
   }
 }

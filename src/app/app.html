@@ -3,6 +3,10 @@
   [ngClass]="light ? 'light' : 'dark'"
   class="flex flex-col justify-around items-center gap-5 mt-10 pb-10"
 >
+  <p class="font-bold">- Output Properties (Children to Parent) -</p>
+  <app-items [data]="data" (onDel)="removeData($event)"></app-items>
+  <app-form (onSend)="saveData($event)"></app-form>
+
   <p class="font-bold">- Text Interpolation and Pipes -</p>
   <h1>Hello {{ name | titlecase }}</h1>
   <h2>อายุของคุณคือ {{ getAge() }}</h2>
@@ -52,7 +56,4 @@
   <p class="font-bold">- Computed Signals -</p>
   <h2>double i = {{ doublei() }}</h2>
   <h2>even i = {{ eveni() }}</h2>
-
-  <p class="font-bold">- Output Properties (Children to Parent) -</p>
-  <app-items [data]="data" (onDel)="removeData($event)"></app-items>
 </body>
